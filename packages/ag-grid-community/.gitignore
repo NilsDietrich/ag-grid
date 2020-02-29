@@ -1,6 +1,7 @@
 node_modules
 dist
 publish
+tmp
 
 node_modules/
 package-lock.json

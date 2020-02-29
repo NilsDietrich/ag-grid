@@ -7,7 +7,7 @@
   "types": "./dist/es6/main.d.ts",
   "scripts": {
     "insight-build": "rimraf publish && npm run build && npm run package && npx gulp insightBuildOptimize && rimraf dist",
-    "insight-publish": "cd ../../publish-scripts && npm run client-side-row-model",
+    "insight-publish": "rimraf tmp && git clone git@bitbucket.org:Projekt_EAGLE/build-ag-grid-client-side-row-model.git tmp && cd tmp && git rm -r * && copyfiles -u 2 ../publish/**/* . && git add --all && git commit -m \"New Build\" && git push origin master",
     "build-cjs": "tsc -p tsconfig.json",
     "build-es6": "tsc -p tsconfig.es6.json",
     "package": "node ../../module-build/rollup/build.js",
@@ -43,11 +43,12 @@
   ],
   "homepage": "http://www.ag-grid.com/",
   "dependencies": {
-    "@ag-grid-community/core": "~22.1.1"
+    "@ag-grid-community/core": "git+ssh://git@bitbucket.org:Projekt_EAGLE/build-ag-grid-core.git#8d02f31"
   },
   "devDependencies": {
     "typescript": "^3.6.3",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "copyfiles": "^2.2.0"
   },
   "publishConfig": {
     "access": "public"

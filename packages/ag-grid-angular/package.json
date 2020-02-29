@@ -6,7 +6,7 @@
   "typings": "main.d.ts",
   "scripts": {
     "insight-build": "rimraf publish && npm run build && npx gulp insightBuildOptimize && rimraf dist",
-    "insight-publish": "cd ../../publish-scripts && npm run package-angular",
+    "insight-publish": "rimraf tmp && git clone git@bitbucket.org:Projekt_EAGLE/build-ag-grid-package-angular.git tmp && cd tmp && git rm -r * && copyfiles -u 2 ../publish/**/* . && git add --all && git commit -m \"New Build\" && git push origin master",
     "update-properties": "node -e 'require(\"./updateGridAndColumnProperties.js\").updatePropertiesBuilt()'",
     "verify-properties": "node agGridPropertiesCheck.js",
     "precheck": "tsc -p tsconfig-precheck.json",
@@ -48,7 +48,8 @@
     "rimraf": "^3.0.0",
     "rxjs": "^5.5.0",
     "typescript": "^2.9.0",
-    "typescript-simple": "8.0.6"
+    "typescript-simple": "8.0.6",
+    "copyfiles": "^2.2.0"
   },
   "peerDependencies": {
     "ag-grid-community": "~22.1.1",

@@ -4,6 +4,8 @@
   "description": "Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components",
   "main": "./dist/ag-grid-community.cjs.js",
   "scripts": {
+    "insight-build": "rimraf publish && npm run build && npx gulp insightBuildOptimize && npm run clean && cd publish/dist && rimraf src",
+    "insight-publish": "rimraf tmp && git clone git@bitbucket.org:Projekt_EAGLE/build-ag-grid-angular.git tmp && cd tmp && git rm -r * && copyfiles -u 2 ../publish/**/* . && git add --all && git commit -m \"New Build\" && git push origin master",
     "build": "gulp && npm run rollup",
     "rollup": "node build.js"
   },
@@ -48,11 +50,12 @@
   "homepage": "http://www.ag-grid.com/",
   "dependencies": {},
   "devDependencies": {
+    "copyfiles": "^2.2.0",
     "@ag-grid-community/all-modules": "~22.1.1",
-    "@ag-grid-community/core": "~22.1.1",
-    "@ag-grid-community/client-side-row-model": "~22.1.1",
-    "@ag-grid-community/csv-export": "~22.1.1",
-    "@ag-grid-community/infinite-row-model": "~22.1.1",
+    "@ag-grid-community/core": "git+ssh://git@bitbucket.org:Projekt_EAGLE/build-ag-grid-core.git#8d02f31",
+    "@ag-grid-community/client-side-row-model": "git+ssh://git@bitbucket.org:Projekt_EAGLE/build-ag-grid-client-side-row-model.git#7f54ac3",
+    "@ag-grid-community/csv-export": "git+ssh://git@bitbucket.org:Projekt_EAGLE/build-ag-grid-csv-export.git#6ff7c57",
+    "@ag-grid-community/infinite-row-model": "git+ssh://git@bitbucket.org:Projekt_EAGLE/build-ag-grid-infinite-row-model.git#349ff1e",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-header": "^2.0.0",

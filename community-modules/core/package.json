@@ -7,7 +7,7 @@
   "types": "./dist/es6/main.d.ts",
   "scripts": {
     "insight-build": "rimraf publish && npm run build && npm run package && npx gulp insightBuildOptimize && rimraf dist",
-    "insight-publish": "cd ../../publish-scripts && npm run core",
+    "insight-publish": "rimraf tmp && git clone git@bitbucket.org:Projekt_EAGLE/build-ag-grid-core.git tmp && cd tmp && git rm -r * && copyfiles -u 2 ../publish/**/* . && git add --all && git commit -m \"New Build\" && git push origin master",
     "lint": "tslint -p tsconfig.json src/ts/**/*.ts",
     "lint-fix": "tslint -p tsconfig.json -c tslint-fix.json --fix src/ts/**/*.ts",
     "precheck": "tsc -p tsconfig-precheck.json",
@@ -93,7 +93,8 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-named": "^1.1.0",
     "webpack": "^4.39.0",
-    "webpack-stream": "5.0.0"
+    "webpack-stream": "5.0.0",
+    "copyfiles": "^2.2.0"
   },
   "publishConfig": {
     "access": "public"

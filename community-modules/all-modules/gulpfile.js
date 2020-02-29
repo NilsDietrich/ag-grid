@@ -123,4 +123,9 @@ gulp.task('webpack-all', series('clean', 'copy-grid-core-styles', parallel('webp
 // default/release task
 gulp.task('default', series('webpack-all'));
 
+// insight
+gulp.task('insightBuildCopyDist', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));
+gulp.task('insightBuildCopyMain', () => gulp.src(['./LICENSE.txt', './package.json', './README.md']).pipe(gulp.dest('./publish')));
+gulp.task('insightBuildOptimize', series('insightBuildCopyDist', 'insightBuildCopyMain'));
+gulp.task('insightPublishCopy', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));
 

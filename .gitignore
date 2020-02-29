@@ -5,8 +5,6 @@
 .idea/encodings.xml
 /.idea/atlassian-ide-plugin.xml
 
-publish-scripts
-
 .lernaBuildChain.cache.json
 
 .DS_Store

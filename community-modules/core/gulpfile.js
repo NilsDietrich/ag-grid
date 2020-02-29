@@ -192,5 +192,7 @@ gulp.task('default', series('tsc-scss-clean', 'copy-styles-for-dist'));
 // insight
 gulp.task('insightBuildCopyDist', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));
 gulp.task('insightBuildCopyMain', () => gulp.src(['./LICENSE.txt', './package.json', './README.md', './tsconfig.typings.json']).pipe(gulp.dest('./publish')));
-gulp.task('insightBuildOptimize', series('insightBuildCopyDist', 'insightBuildCopyMain'));
+gulp.task('insightBuildCopySrc', () => gulp.src(['./src/**/*']).pipe(gulp.dest('./publish/src')));
+gulp.task('insightBuildCopyTypings', () => gulp.src(['./src/**/*']).pipe(gulp.dest('./publish/typings')));
+gulp.task('insightBuildOptimize', series('insightBuildCopyDist', 'insightBuildCopyMain', 'insightBuildCopySrc', 'insightBuildCopyTypings'));
 gulp.task('insightPublishCopy', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));

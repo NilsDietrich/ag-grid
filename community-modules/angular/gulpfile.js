@@ -57,6 +57,6 @@ gulp.task('default', series('update-properties', 'compile-main', 'compile-source
 
 // insight
 gulp.task('insightBuildCopyDist', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));
-gulp.task('insightBuildCopyMain', () => gulp.src(['./LICENSE.txt', './package.json', './README.md']).pipe(gulp.dest('./publish')));
+gulp.task('insightBuildCopyMain', () => gulp.src(['./LICENSE.txt', './package.json', './README.md', './exports.ts', './main.d.ts', './main.js', './main.metadata.json']).pipe(gulp.dest('./publish')));
 gulp.task('insightBuildOptimize', series('insightBuildCopyDist', 'insightBuildCopyMain'));
 gulp.task('insightPublishCopy', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));
