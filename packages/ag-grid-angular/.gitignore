@@ -1,3 +1,7 @@
+node_modules
+dist
+publish
+
 .idea/
 *.iml
 main.ts

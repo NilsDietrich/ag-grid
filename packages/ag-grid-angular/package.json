@@ -5,6 +5,8 @@
   "main": "main.js",
   "typings": "main.d.ts",
   "scripts": {
+    "insight-build": "rimraf publish && npm run build && npx gulp insightBuildOptimize && rimraf dist",
+    "insight-publish": "cd ../../publish-scripts && npm run package-angular",
     "update-properties": "node -e 'require(\"./updateGridAndColumnProperties.js\").updatePropertiesBuilt()'",
     "verify-properties": "node agGridPropertiesCheck.js",
     "precheck": "tsc -p tsconfig-precheck.json",

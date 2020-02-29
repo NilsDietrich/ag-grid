@@ -54,3 +54,9 @@ gulp.task('compile-source', compileSource);
 gulp.task('update-properties-and-compile-source', compileSource);
 gulp.task('watch', series('update-properties-and-compile-source', watch));
 gulp.task('default', series('update-properties', 'compile-main', 'compile-source', 'main-post-compile-rename','clean-post-build-artifacts'));
+
+// insight
+gulp.task('insightBuildCopyDist', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));
+gulp.task('insightBuildCopyMain', () => gulp.src(['./LICENSE.txt', './package.json', './README.md']).pipe(gulp.dest('./publish')));
+gulp.task('insightBuildOptimize', series('insightBuildCopyDist', 'insightBuildCopyMain'));
+gulp.task('insightPublishCopy', () => gulp.src('./dist/**/*').pipe(gulp.dest('./publish/dist')));

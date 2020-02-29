@@ -6,6 +6,8 @@
   "module": "./dist/es6/main.js",
   "types": "./dist/es6/main.d.ts",
   "scripts": {
+    "insight-build": "rimraf publish && npm run build && npm run package && npx gulp insightBuildOptimize && rimraf dist",
+    "insight-publish": "cd ../../publish-scripts && npm run infinite-row-model",
     "build-cjs": "tsc -p tsconfig.json",
     "build-es6": "tsc -p tsconfig.es6.json",
     "package": "node ../../module-build/rollup/build.js",
@@ -44,7 +46,8 @@
     "@ag-grid-community/core": "~22.1.1"
   },
   "devDependencies": {
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "gulp": "^4.0.2"
   },
   "publishConfig": {
     "access": "public"
