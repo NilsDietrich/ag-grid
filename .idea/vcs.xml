@@ -2,11 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/community-modules/angular/tmp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/community-modules/client-side-row-model/tmp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/community-modules/core/tmp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/community-modules/csv-export/tmp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/community-modules/infinite-row-model/tmp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/publish-scripts/tmp" vcs="Git" />
   </component>
 </project>
