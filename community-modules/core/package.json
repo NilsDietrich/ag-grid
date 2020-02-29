@@ -6,7 +6,8 @@
   "module": "./dist/es6/main.js",
   "types": "./dist/es6/main.d.ts",
   "scripts": {
-    "insight-build": "rimraf publish && npm run build && npm run package && npx gulp insightOptimize && rimraf dist",
+    "insight-build": "rimraf publish && npm run build && npm run package && npx gulp insightBuildOptimize && rimraf dist",
+    "insight-publish": "cd ../../publish-scripts && npm run core",
     "lint": "tslint -p tsconfig.json src/ts/**/*.ts",
     "lint-fix": "tslint -p tsconfig.json -c tslint-fix.json --fix src/ts/**/*.ts",
     "precheck": "tsc -p tsconfig-precheck.json",
@@ -31,14 +32,9 @@
     "data-table",
     "grid",
     "table",
-    "react",
     "table",
     "angular",
-    "angular-component",
-    "react",
-    "react-component",
-    "angularjs",
-    "reactjs"
+    "angular-component"
   ],
   "author": "Sean Landsman <sean@thelandsmans.com>",
   "license": "MIT",
