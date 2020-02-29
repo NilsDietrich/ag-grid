@@ -6,6 +6,7 @@
   "module": "./dist/es6/main.js",
   "types": "./dist/es6/main.d.ts",
   "scripts": {
+    "insight-build": "rimraf publish && npm run build && npm run package && npx gulp insightOptimize && rimraf dist",
     "lint": "tslint -p tsconfig.json src/ts/**/*.ts",
     "lint-fix": "tslint -p tsconfig.json -c tslint-fix.json --fix src/ts/**/*.ts",
     "precheck": "tsc -p tsconfig-precheck.json",
