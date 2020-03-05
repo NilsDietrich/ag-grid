@@ -1711,7 +1711,7 @@ export class Utils {
             this.isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
                 // eslint-disable-next-line
                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
-                !window.MSStream;
+                !(window as any).MSStream;
         }
         return this.isIOS;
     }
